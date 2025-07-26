@@ -71,18 +71,6 @@ Top 2 by quantity:
 Expected error: Item 'nonexistent' not found.
 ```
 
-### As a Library
-
-Import and use the `Inventory` class directly in your code:
-
-```python
-from inventory.service.inventory import Inventory, ItemNotFoundError
-
-inv = Inventory()
-inv.upsert_item("widget", price=2.50, qty=20)
-total = inv.range_query_quantity(0, 5)
-print(f"Total items priced up to $5: {total}")
-```
 
 ## Testing
 
