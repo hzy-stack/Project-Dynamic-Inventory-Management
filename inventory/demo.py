@@ -1,9 +1,9 @@
 from inventory.exception.exceptions import ItemNotFoundError
-from inventory.service.inventory_service import Inventory
+from inventory.service.inventory_service import InventoryService
 
 
 def main():
-    inv = Inventory()
+    inv = InventoryService()
 
     # 1. Upsert a few items
     inv.upsert_item("apple", price=1.25, qty=100, metadata={"category": "fruit"})

@@ -1,18 +1,11 @@
-from dataclasses import dataclass, field
 from typing import Dict, Any, List, Tuple, Iterator
 import heapq
 
 from inventory.exception.exceptions import InvalidItemError, ItemNotFoundError
+from inventory.models.inventory_items import Item
 
 
-@dataclass
-class Item:
-    price: float
-    qty: int
-    metadata: Dict[str, Any] = field(default_factory=dict)
-
-
-class Inventory:
+class InventoryService:
     """
     Dynamic inventory supporting:
       - upsert (insert/update)
@@ -24,7 +17,6 @@ class Inventory:
     """
 
     def __init__(self) -> None:
-        # Internal storage: item_id -> Item
         self._items: Dict[str, Item] = {}
 
     def upsert_item(
